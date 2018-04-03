@@ -18,9 +18,9 @@
         <ion-card-header>
           Mercadería
         </ion-card-header>
-      
         <ion-list>
           <div ion-item *ngFor="let i of itemList">
+              <ion-icon name="beer" item-start></ion-icon>
               <b>{{i.name}}</b> <i>$ {{i.price}}</i>
               <div>
                 <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
@@ -33,37 +33,6 @@
               </div>
               <div item-end><ion-badge>$ {{i.price * i.amount}}</ion-badge></div>
           </div>
-          <button ion-item>
-            <ion-icon name="cart" item-start></ion-icon>
-            Shopping
-            
-          </button>
-      
-          <button ion-item>
-            <ion-icon name="medical" item-start></ion-icon>
-            Hospital
-          </button>
-      
-          <button ion-item>
-            <ion-icon name="cafe" item-start></ion-icon>
-            Cafe
-          </button>
-      
-          <button ion-item>
-            <ion-icon name="paw" item-start></ion-icon>
-            Dog Park
-          </button>
-      
-          <button ion-item>
-            <ion-icon name="beer" item-start></ion-icon>
-            Pub
-          </button>
-      
-          <button ion-item>
-            <ion-icon name="planet" item-start></ion-icon>
-            Space
-          </button>
-      
         </ion-list>
       </ion-card>
     <button ion-button block id=checkout (click)="showConfirm()">Facturar</button>
