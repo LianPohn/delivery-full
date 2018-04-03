@@ -20,18 +20,18 @@
         </ion-card-header>
       
         <ion-list>
-          <div ion-item>
-            <b>Div item.</b> <i>$ {{itemPrice}}</i>
-            <div>
-              <button (click)="decreaseItemAmount($event)" ion-button icon-left>
-                  <ion-icon name="md-remove"></ion-icon>
-              </button>
-              {{itemAmount}}
-              <button (click)="increaseItemAmount($event)" ion-button icon-right>
-                  <ion-icon name="md-add"></ion-icon>
-              </button>
-            </div>
-            <div item-end><ion-badge>$ {{itemPriceTotal}}</ion-badge></div>
+          <div ion-item *ngFor="let i of itemList">
+              <b>{{i.name}}</b> <i>$ {{i.price}}</i>
+              <div>
+                <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
+                    <ion-icon name="md-remove"></ion-icon>
+                </button>
+                {{i.amount}}
+                <button (click)="increaseItemAmountList($event,i)" ion-button icon-right>
+                    <ion-icon name="md-add"></ion-icon>
+                </button>
+              </div>
+              <div item-end><ion-badge>$ {{i.price * i.amount}}</ion-badge></div>
           </div>
           <button ion-item>
             <ion-icon name="cart" item-start></ion-icon>

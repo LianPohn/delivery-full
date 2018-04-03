@@ -15,9 +15,18 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 })
 export class FilerequestPage {
 
-  itemAmount = 0;
-  itemPrice = 20;
-  itemPriceTotal = 0;
+  itemList = [
+    {
+      name : "item 1",
+      amount : 0,
+      price : 20
+    },
+    {
+      name : "item 2",
+      amount : 0,
+      price : 33
+    }
+  ]
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public alertCtrl: AlertController, public app: App) {
@@ -27,24 +36,14 @@ export class FilerequestPage {
     console.log('ionViewDidLoad FilerequestPage');
   }
 
-  decreaseItemAmount(event){
-    this.itemAmount = (this.itemAmount <= 0) ? (0) : (this.itemAmount - 1);
-    this.updatePriceTotal();
-  }
-
-  increaseItemAmount(event){
-    this.itemAmount++;
-    this.updatePriceTotal();
-  }
-
-  updatePriceTotal(){
-    this.itemPriceTotal = this.itemAmount * this.itemPrice;
-  }
-
   showConfirm() {
+    let total = 0;
+    for(let item of this.itemList){
+      total = total + item.amount * item.price;
+    }
     let confirm = this.alertCtrl.create({
       title: '¿Facturar?',
-      message: '¿Usted quiere emitir una factura por el monto de <u><b>$' + this.itemPriceTotal + '</b></u>?',
+      message: '¿Usted quiere emitir una factura por el monto de <u><b>$' + total + '</b></u>?',
       buttons: [
         {
           text: 'No',
@@ -63,6 +62,14 @@ export class FilerequestPage {
       ]
     });
     confirm.present();
+  }
+
+  decreaseItemAmountList(event, item){
+    item.amount = (item.amount <= 0) ? (0) : (item.amount - 1);
+  }
+
+  increaseItemAmountList(event, item){
+    item.amount++;
   }
 
 }
