@@ -1,0 +1,70 @@
+<!--
+  Generated template for the FilerequestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>filerequest</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id=filerequest>
+    <ion-card>
+        <ion-card-header>
+          Mercadería
+        </ion-card-header>
+      
+        <ion-list>
+          <div ion-item>
+            <b>Div item.</b> <i>$ {{itemPrice}}</i>
+            <div>
+              <button (click)="decreaseItemAmount($event)" ion-button icon-left>
+                  <ion-icon name="md-remove"></ion-icon>
+              </button>
+              {{itemAmount}}
+              <button (click)="increaseItemAmount($event)" ion-button icon-right>
+                  <ion-icon name="md-add"></ion-icon>
+              </button>
+            </div>
+            <div item-end><ion-badge>$ {{itemPriceTotal}}</ion-badge></div>
+          </div>
+          <button ion-item>
+            <ion-icon name="cart" item-start></ion-icon>
+            Shopping
+            
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="medical" item-start></ion-icon>
+            Hospital
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="cafe" item-start></ion-icon>
+            Cafe
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="paw" item-start></ion-icon>
+            Dog Park
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="beer" item-start></ion-icon>
+            Pub
+          </button>
+      
+          <button ion-item>
+            <ion-icon name="planet" item-start></ion-icon>
+            Space
+          </button>
+      
+        </ion-list>
+      </ion-card>
+    <button ion-button block id=checkout (click)="showConfirm()">Facturar</button>
+</ion-content>
