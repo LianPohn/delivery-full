@@ -16,6 +16,8 @@ import { FilerequestPage } from '../filerequest/filerequest';
 })
 export class WelcomePage {
 
+  businessName = "Distribuidora";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>filerequest</ion-title>
+    <ion-title>Levantar un pedido ($ {{this.total}})</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,7 +27,7 @@
       </ion-card-content>
 
       <ion-row>
-        <ion-col class="col text-right" col-2>
+        <ion-col class="col text-right" col-3>
           <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
             <ion-icon name="md-remove"></ion-icon>
           </button>
@@ -36,7 +36,7 @@
             <ion-icon name="md-add"></ion-icon>
           </button>
         </ion-col>
-        <ion-col col-8>
+        <ion-col col-7>
           <ion-badge>$ {{i.price * i.amount}}</ion-badge>
         </ion-col>
       </ion-row>

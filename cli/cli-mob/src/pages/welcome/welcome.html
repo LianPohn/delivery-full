@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>welcome</ion-title>
+    <ion-title>{{this.businessName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding id=welcome>
   <h1>Distribuidora</h1>
-  <div>Bienvenido a <b>Distribuidora</b>. Seleccione qué va a hacer:</div>
+  <div>Bienvenido a <b>{{this.businessName}}</b>. Seleccione qué va a hacer:</div>
   <button ion-button block id=file-request (click)="fileRequest()">Levantar un Pedido</button>
   <button ion-button block id=history-request>Historial de Pedidos</button>
 </ion-content>
