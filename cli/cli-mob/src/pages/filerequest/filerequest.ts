@@ -15,16 +15,49 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 })
 export class FilerequestPage {
 
+  itemImgDirPath = "assets/imgs/";
   itemList = [
     {
-      name : "item 1",
+      name : "Toro tinto - Tetrabrik 1L",
       amount : 0,
-      price : 20
+      price : 20,
+      stock : 10,
+      img : this.itemImgDirPath + "toro-tinto-tetra-brik.jpg"
     },
     {
-      name : "item 2",
+      name : "Toro Viejo tinto 750 mL",
       amount : 0,
-      price : 33
+      price : 33,
+      stock : 6,
+      img : this.itemImgDirPath + "toro-viejo-tinto-3-4.jpg"
+    },
+    {
+      name : "Toro tinto - Botella 1L",
+      amount : 0,
+      price : 41,
+      stock : 3,
+      img : this.itemImgDirPath + "toro-tinto-botella.jpg"
+    },
+    {
+      name : "Brahama - Botella 1L",
+      amount : 0,
+      price : 41,
+      stock : 3,
+      img : this.itemImgDirPath + "brahama-botela-litro.jpg"
+    },
+    {
+      name : "Quilmes Cristal - Botella 1L",
+      amount : 0,
+      price : 41,
+      stock : 3,
+      img : this.itemImgDirPath + "quilmes-botella.jpg"
+    },
+    {
+      name : "Quilmes Cristal - Lata 500 mL",
+      amount : 0,
+      price : 41,
+      stock : 3,
+      img : this.itemImgDirPath + "quilmes-lata.jpg"
     }
   ]
 
@@ -65,11 +98,11 @@ export class FilerequestPage {
   }
 
   decreaseItemAmountList(event, item){
-    item.amount = (item.amount <= 0) ? (0) : (item.amount - 1);
+    item.amount = (item.amount <= 0) ? 0 : item.amount - 1;
   }
 
   increaseItemAmountList(event, item){
-    item.amount++;
+    item.amount = (item.amount < item.stock) ? item.amount + 1 : item.amount;
   }
 
 }

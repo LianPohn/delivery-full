@@ -20,7 +20,8 @@
         </ion-card-header>
         <ion-list>
           <div ion-item *ngFor="let i of itemList">
-              <ion-icon name="beer" item-start></ion-icon>
+              <!--ion-icon name="beer" item-start></ion-icon-->
+              <img src="{{i.img}}" alt="{{i.name}}" item-start class="img-list-thumb">
               <b>{{i.name}}</b> <i>$ {{i.price}}</i>
               <div>
                 <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
