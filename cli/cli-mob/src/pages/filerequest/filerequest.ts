@@ -61,6 +61,8 @@ export class FilerequestPage {
     }
   ]
 
+  total = 0;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public alertCtrl: AlertController, public app: App) {
   }
@@ -99,10 +101,19 @@ export class FilerequestPage {
 
   decreaseItemAmountList(event, item){
     item.amount = (item.amount <= 0) ? 0 : item.amount - 1;
+    this.updateTotal();
   }
 
   increaseItemAmountList(event, item){
     item.amount = (item.amount < item.stock) ? item.amount + 1 : item.amount;
+    this.updateTotal();
+  }
+
+  updateTotal(){
+    this.total = 0;
+    for(let i of this.itemList){
+      this.total = this.total + i.amount * i.price;
+    }
   }
 
 }

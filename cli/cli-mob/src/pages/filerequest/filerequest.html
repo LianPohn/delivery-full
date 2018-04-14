@@ -14,27 +14,38 @@
 
 
 <ion-content padding id=filerequest>
+  <h1>Mercadería</h1>
+    <ion-card *ngFor="let i of itemList">
+      <ion-item>
+        <img src="{{i.img}}" alt="{{i.name}}" item-start class="img-list-thumb">
+        <h2>{{i.name}}</h2>
+      </ion-item>
+
+      <ion-card-content>
+        <p><b>Precio:</b> <u><i>$ {{i.price}}</i></u></p>
+        <p><b>Disponibilidad:</b> {{i.stock}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col class="col text-right" col-2>
+          <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
+            <ion-icon name="md-remove"></ion-icon>
+          </button>
+          {{i.amount}}
+          <button (click)="increaseItemAmountList($event,i)" ion-button icon-right>
+            <ion-icon name="md-add"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-8>
+          <ion-badge>$ {{i.price * i.amount}}</ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-card>
     <ion-card>
-        <ion-card-header>
-          Mercadería
-        </ion-card-header>
-        <ion-list>
-          <div ion-item *ngFor="let i of itemList">
-              <!--ion-icon name="beer" item-start></ion-icon-->
-              <img src="{{i.img}}" alt="{{i.name}}" item-start class="img-list-thumb">
-              <b>{{i.name}}</b> <i>$ {{i.price}}</i>
-              <div>
-                <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
-                    <ion-icon name="md-remove"></ion-icon>
-                </button>
-                {{i.amount}}
-                <button (click)="increaseItemAmountList($event,i)" ion-button icon-right>
-                    <ion-icon name="md-add"></ion-icon>
-                </button>
-              </div>
-              <div item-end><ion-badge>$ {{i.price * i.amount}}</ion-badge></div>
-          </div>
-        </ion-list>
-      </ion-card>
+      <ion-item>
+        <h1>Total</h1>
+        <p>$ {{this.total}}</p>
+      </ion-item>
+    </ion-card>
     <button ion-button block id=checkout (click)="showConfirm()">Facturar</button>
 </ion-content>
