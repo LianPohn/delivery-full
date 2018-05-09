@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
+import { DataStorageManager, FileDataManager } from '../../app/data-storage-management/data-storage-manager';
 
 /**
  * Generated class for the FilerequestPage page.
@@ -15,56 +16,17 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 })
 export class FilerequestPage {
 
-  itemImgDirPath = "assets/imgs/";
-  itemList = [
-    {
-      name : "Toro tinto - Tetrabrik 1L",
-      amount : 0,
-      price : 20,
-      stock : 10,
-      img : this.itemImgDirPath + "toro-tinto-tetra-brik.jpg"
-    },
-    {
-      name : "Toro Viejo tinto 750 mL",
-      amount : 0,
-      price : 33,
-      stock : 6,
-      img : this.itemImgDirPath + "toro-viejo-tinto-3-4.jpg"
-    },
-    {
-      name : "Toro tinto - Botella 1L",
-      amount : 0,
-      price : 41,
-      stock : 3,
-      img : this.itemImgDirPath + "toro-tinto-botella.jpg"
-    },
-    {
-      name : "Brahama - Botella 1L",
-      amount : 0,
-      price : 41,
-      stock : 3,
-      img : this.itemImgDirPath + "brahama-botela-litro.jpg"
-    },
-    {
-      name : "Quilmes Cristal - Botella 1L",
-      amount : 0,
-      price : 41,
-      stock : 3,
-      img : this.itemImgDirPath + "quilmes-botella.jpg"
-    },
-    {
-      name : "Quilmes Cristal - Lata 500 mL",
-      amount : 0,
-      price : 41,
-      stock : 3,
-      img : this.itemImgDirPath + "quilmes-lata.jpg"
-    }
-  ]
+  private stogrageManager : DataStorageManager;
+
+  private itemImgDirPath = "assets/imgs/";
+  private itemList = null;
 
   total = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public alertCtrl: AlertController, public app: App) {
+      this.stogrageManager = new FileDataManager("itemsStock.json");
+      this.stogrageManager.readItems(this, "itemList");
   }
 
   ionViewDidLoad() {
@@ -73,6 +35,7 @@ export class FilerequestPage {
 
   showConfirm() {
     let total = 0;
+    debugger;
     for(let item of this.itemList){
       total = total + item.amount * item.price;
     }
@@ -90,6 +53,7 @@ export class FilerequestPage {
           text: 'Si',
           handler: () => {
             console.log('Agree clicked');
+            this.stogrageManager.writeItems(this.itemList);
             const root = this.app.getRootNav();
             root.popToRoot();
           }

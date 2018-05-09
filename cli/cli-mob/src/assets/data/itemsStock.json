@@ -1,0 +1,44 @@
+[
+    {
+      "name" : "Toro tinto - Tetrabrik 1L",
+      "amount" : 0,
+      "price" : 20,
+      "stock" : 10,
+      "img" : "assets/imgs/toro-tinto-tetra-brik.jpg"
+    },
+    {
+      "name" : "Toro Viejo tinto 750 mL",
+      "amount" : 0,
+      "price" : 33,
+      "stock" : 6,
+      "img" : "assets/imgs/toro-viejo-tinto-3-4.jpg"
+    },
+    {
+      "name" : "Toro tinto - Botella 1L",
+      "amount" : 0,
+      "price" : 41,
+      "stock" : 3,
+      "img" : "assets/imgs/toro-tinto-botella.jpg"
+    },
+    {
+      "name" : "Brahama - Botella 1L",
+      "amount" : 0,
+      "price" : 41,
+      "stock" : 3,
+      "img" : "assets/imgs/brahama-botela-litro.jpg"
+    },
+    {
+      "name" : "Quilmes Cristal - Botella 1L",
+      "amount" : 0,
+      "price" : 41,
+      "stock" : 3,
+      "img" : "assets/imgs/quilmes-botella.jpg"
+    },
+    {
+      "name" : "Quilmes Cristal - Lata 500 mL",
+      "amount" : 0,
+      "price" : 41,
+      "stock" : 3,
+      "img" : "assets/imgs/quilmes-lata.jpg"
+    }
+  ]

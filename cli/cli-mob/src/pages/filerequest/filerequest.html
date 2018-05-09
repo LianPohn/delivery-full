@@ -15,32 +15,35 @@
 
 <ion-content padding id=filerequest>
   <h1>Mercadería</h1>
-    <ion-card *ngFor="let i of itemList">
-      <ion-item>
-        <img src="{{i.img}}" alt="{{i.name}}" item-start class="img-list-thumb">
-        <h2>{{i.name}}</h2>
-      </ion-item>
+    <div *ngIf="itemList != null">
+      <ion-card *ngFor="let i of itemList">
+        <ion-item>
+          <img src="{{i.img}}" alt="{{i.name}}" item-start class="img-list-thumb">
+          <h2>{{i.name}}</h2>
+        </ion-item>
 
-      <ion-card-content>
-        <p><b>Precio:</b> <u><i>$ {{i.price}}</i></u></p>
-        <p><b>Disponibilidad:</b> {{i.stock}}</p>
-      </ion-card-content>
+        <ion-card-content>
+          <p><b>Precio:</b> <u><i>$ {{i.price}}</i></u></p>
+          <p><b>Disponibilidad:</b> {{i.stock}}</p>
+        </ion-card-content>
 
-      <ion-row>
-        <ion-col class="col text-right" col-3>
-          <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left>
-            <ion-icon name="md-remove"></ion-icon>
-          </button>
-          {{i.amount}}
-          <button (click)="increaseItemAmountList($event,i)" ion-button icon-right>
-            <ion-icon name="md-add"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col col-7>
-          <ion-badge>$ {{i.price * i.amount}}</ion-badge>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+        <ion-row>
+          <!--ion-col class="col text-right" col-3-->
+          <ion-col class="amount-selector-container" col-auto>
+            <button (click)="decreaseItemAmountList($event,i)" ion-button icon-left small>
+              <ion-icon name="md-remove"></ion-icon>
+            </button>
+            {{i.amount}}
+            <button (click)="increaseItemAmountList($event,i)" ion-button icon-right small>
+              <ion-icon name="md-add"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-auto class="selected-total">
+            <ion-badge>$ {{i.price * i.amount}}</ion-badge>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
     <ion-card>
       <ion-item>
         <h1>Total</h1>

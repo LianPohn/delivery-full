@@ -3,4 +3,14 @@ page-filerequest {
         height: 100px;
         width: auto;
     }
+    .amount-selector-container{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
+    .selected-total{
+        display:  flex;
+        align-items: center;
+    }
 }
