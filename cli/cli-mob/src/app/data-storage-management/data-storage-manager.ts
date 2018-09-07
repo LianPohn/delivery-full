@@ -23,8 +23,6 @@ export class FileDataManager extends DataStorageManager {
 
     public readItems(obj, prop){
         $.get('assets/data/' + this.filePath, function(data){
-            console.log(data);
-            debugger;
             obj[prop] = data;
             return obj;
         })
